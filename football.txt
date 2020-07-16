@@ -1,0 +1,15 @@
+SELECT * FROM player WHERE team_id="t1";
+
+SELECT * FROM player WHERE salary>500000;
+
+SELECT team_name,(SELECT SUM(salary) FROM player WHERE player.team_id=team.team_id) AS salary FROM team;
+
+SELECT * FROM player WHERE height<5;
+
+SELECT team_name,(SELECT AVG(salary) FROM player WHERE player.team_id=team.team_id) AS salary FROM team;
+
+SELECT player_name,salary FROM player WHERE salary in (SELECT MAX(salary) FROM player);
+
+SELECT player_name,salary FROM player WHERE salary in (SELECT MIN(salary) FROM player);
+
+SELECT player_name,age,salary FROM player WHERE age>30 AND salary>20000;
